@@ -1,6 +1,6 @@
 // Karma configuration
 // run so
-// karma start --browsers=Chrome,Firefox spec/karm/karma.conf.js --single-run=true
+// karma start --browsers=Chrome,Firefox spec/karma/karma.conf.js --single-run=true
 
 
 // base path, that will be used to resolve files and exclude

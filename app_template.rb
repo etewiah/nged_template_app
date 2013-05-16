@@ -62,6 +62,10 @@ remove_file "public/index.html"
 
 remove_file "app/views/main/index.html.erb"
 run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/views/main/index.html.erb' -O app/views/main/index.html.erb"
+
+remove_file "helpers/main_helper.rb"
+run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/helpers/main_helper.rb' -O helpers/main_helper.rb"
+
 run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/views/main/_top_bar.html.erb' -O app/views/main/_top_bar.html.erb"
 
 run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/config/mongoid.yml' -O config/mongoid.yml"
@@ -70,6 +74,7 @@ run "wget --no-check-certificate 'https://raw.github.com/angular-ui/angular-ui/m
 run "wget http://code.angularjs.org/1.0.6/angular.js -O vendor/assets/javascripts/angular.1.0.6.js"
 run "wget http://code.angularjs.org/1.0.6/angular-scenario.js -O vendor/assets/javascripts/angular-scenario.1.0.6.js"
 run "wget http://code.angularjs.org/1.0.6/angular-resource.js  -O vendor/assets/javascripts/angular-resource.1.0.6.js"
+run "wget http://code.angularjs.org/1.0.6/angular-sanitize.js  -O vendor/assets/javascripts/angular-sanitize.1.0.6.js"
 
 
 # wget http://code.angularjs.org/1.0.6/angular-resource.js -P vendor/assets/javascripts
@@ -91,6 +96,10 @@ gem "unicorn"
 
 gem 'zurb-foundation', '~> 4.0.0', :group => [:assets]
 run 'bundle install'
+
+
+remove_file "views/layouts/application.html.erb"
+run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/views/layouts/application.html.erb' -O views/layouts/application.html.erb"
 
 
 git :add => "."

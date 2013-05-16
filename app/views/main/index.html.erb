@@ -9,17 +9,12 @@
 <link href='http://fonts.googleapis.com/css?family=Jolly+Lodger' rel='stylesheet' type='text/css'>
 <% end %>
 
-<div id="seo-status" data-status="{{ status }}" ></div>
-<!-- Above to be used to indicate when page is ready to render for robots. -->
+
 
 <div class="container"  ng-app="baseApp" ng-controller="BaseCtrl">
 
   <div class=""  ng-controller="NavCtrl" >
-<!-- 
-    <div class="how_it_works" style="" >
-      <div ng-show="disableTshowSplash"  ng-include="'/ng_templates/how_it_works.html'" ></div>
-    </div>
- -->
+
     <%= render "main/top_bar" %>
 
   </div>
@@ -29,15 +24,7 @@
     
     <div style="margin-top:10px"  ng-view></div>
 
-  <div class="small-12 columns" >
-    <div class="small-4 columns">
-      <div id="twtr-search-widget" style="right:1%"></div>
-      <!-- div above is populated by directives within various modules -->
-      <link href="http://widgets.twimg.com/j/1/widget.css" type="text/css" rel="stylesheet"></div>
-    <div class="small-8 columns">
-      <div id="disqus_thread"></div>
-    </div>
-  </div>
+
 
   </div>
 </div>
