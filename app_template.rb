@@ -155,6 +155,17 @@ route "  scope '(:locale)', :locale => /en|es/ do
 git :add => "."
 git :commit => '-a -m "add angular basis"'
 
+
+gem "activeadmin-mongoid",  git: "git://github.com/elia/activeadmin-mongoid.git"
+gem 'devise'
+
+
+generate 'devise:install'
+generate 'active_admin:install'
+
+
+
+
 # git remote add origin ssh://git@bitbucket.org/etewiah/socialrecall.git
 # git push -u --all
 
