@@ -71,7 +71,6 @@ run "wget http://code.angularjs.org/1.0.6/angular.js -O vendor/assets/javascript
 run "wget http://code.angularjs.org/1.0.6/angular-scenario.js -O vendor/assets/javascripts/angular-scenario.1.0.6.js"
 run "wget http://code.angularjs.org/1.0.6/angular-resource.js  -O vendor/assets/javascripts/angular-resource.1.0.6.js"
 
-https://raw.github.com/angular-ui/angular-ui/master/build/angular-ui.js
 
 # wget http://code.angularjs.org/1.0.6/angular-resource.js -P vendor/assets/javascripts
 # # gem 'angular-rails-engine'

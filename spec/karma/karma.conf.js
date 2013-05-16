@@ -1,5 +1,6 @@
 // Karma configuration
-// Generated on Thu Apr 25 2013 19:13:58 GMT+0200 (CEST)
+// run so
+// karma start --browsers=Chrome,Firefox spec/karm/karma.conf.js --single-run=true
 
 
 // base path, that will be used to resolve files and exclude
