@@ -62,8 +62,12 @@ remove_file "public/index.html"
 
 remove_file "app/views/main/index.html.erb"
 run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/views/main/index.html.erb' -O app/views/main/index.html.erb"
+run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/config/mongoid.yml' -O config/mongoid.yml"
+run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/spec/karma/karma_e2e.conf.js' -O spec/karma/karma_e2e.conf.js"
 
-run "wget http://code.angularjs.org/1.0.6/angular.js -P vendor/assets/javascripts"
+run "wget http://code.angularjs.org/1.0.6/angular.js -O vendor/assets/javascripts/angular.1.0.6.js"
+run "wget http://code.angularjs.org/1.0.6/angular-scenario.js -P vendor/assets/javascripts/angular-scenario.1.0.6.js"
+
 # wget http://code.angularjs.org/1.0.6/angular-resource.js -P vendor/assets/javascripts
 # # gem 'angular-rails-engine'
 
@@ -84,8 +88,43 @@ gem "unicorn"
 git :add => "."
 git :commit => '-a -m "add gems and create main index"'
 
-run "mkdir -p app/assets/javascripts/angular/controllers \
-           app/assets/javascripts/angular/directives \
-           app/assets/javascripts/angular/filters \
-           app/assets/javascripts/angular/models \
-           app/assets/javascripts/angular/services"
+run "mkdir -p app/assets/javascripts/ng/controllers \
+           app/assets/javascripts/ng/directives \
+           app/assets/javascripts/ng/filters \
+           app/assets/javascripts/ng/models \
+           app/assets/javascripts/ng/services \
+           spec/karma/controllers \
+           spec/karma/e2e"
+
+
+#Setup the database
+run "rm config/database.yml"
+
+# db_user = ask("Please enter your local mysql user")
+# db_password = ask("Please enter your local mysql password")
+
+# file "config/database.yml", <<-CODE
+# defaults: &defaults
+#   adapter: mysql2
+#   encoding: utf8
+#   reconnect: false
+#   pool: 5
+#   username: #{db_user}
+#   password: #{db_password}
+#   socket: /tmp/mysql.sock
+
+# development:
+#   database: #{app_name.camelize(:lower)}_development
+#   <<: *defaults
+
+# test: &test
+#   database: #{app_name.camelize(:lower)}_test
+#   <<: *defaults
+
+# production:
+#   host: localhost
+#   database: #{app_name.camelize(:lower)}_production
+#   <<: *defaults
+# CODE
+
+# rake "db:create"
