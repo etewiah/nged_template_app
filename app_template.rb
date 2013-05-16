@@ -60,14 +60,32 @@ generate :controller, "main index --skip-javascripts"
 route "root to: 'main\#index'"
 remove_file "public/index.html"
 
+remove_file "app/views/main/index.html.erb"
+run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/views/main/index.html.erb' -O app/views/main/index.html.erb"
+
+run "wget http://code.angularjs.org/1.0.6/angular.js -P vendor/assets/javascripts"
+# wget http://code.angularjs.org/1.0.6/angular-resource.js -P vendor/assets/javascripts
+# # gem 'angular-rails-engine'
+
+gem "jasminerice", :group => [:development, :test]
+gem "gon"
+gem "figaro"
+# gem "quiet_assets"
+gem "capistrano"
+gem "yaml_db"
+gem "mongoid"
+gem "active_model_serializers"
+
+  # get rid of logging: WARN  Could not determine content-length of response body.
+gem 'thin'
+
+gem "unicorn"
+
+git :add => "."
+git :commit => '-a -m "add gems and create main index"'
+
 run "mkdir -p app/assets/javascripts/angular/controllers \
            app/assets/javascripts/angular/directives \
            app/assets/javascripts/angular/filters \
            app/assets/javascripts/angular/models \
            app/assets/javascripts/angular/services"
-
-run "wget --no-check-certificate 'https://raw.github.com/paulsutcliffe/digitalocean-rails/master/public/humans.txt' -O public/humans.txt"
-         
-# run "wget http://code.angularjs.org/1.0.6/angular.js -P vendor/assets/javascripts"
-# wget http://code.angularjs.org/1.0.6/angular-resource.js -P vendor/assets/javascripts
-# # gem 'angular-rails-engine'
