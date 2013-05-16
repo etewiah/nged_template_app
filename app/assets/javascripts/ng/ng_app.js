@@ -8,7 +8,7 @@
 //    }
 // });
 
-var baseApp = angular.module('baseApp', ['DataServices', 'HelperServices', 'ngSanitize', 'ui'])
+var baseApp = angular.module('baseApp', ['DataServices', 'ngSanitize', 'ui'])
         .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
             $routeProvider
                     .when('/',{

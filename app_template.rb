@@ -68,6 +68,8 @@ generate :controller, "ng_app index --skip-javascripts"
 remove_file "app/views/ng_app/index.html.erb"
 run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/views/ng_app/index.html.erb' -O app/views/ng_app/index.html.erb"
 
+run "mkdir -p app/views/ng_templates"
+run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/views/ng_templates/index.html' -O app/views/ng_templates/index.html"
 run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/controllers/ng_templates_controller.rb' -O app/controllers/ng_templates_controller.rb"
 
 remove_file "app/helpers/main_helper.rb"
@@ -105,10 +107,6 @@ gem 'zurb-foundation', '~> 4.0.0', :group => [:assets]
 run 'bundle install'
 
 
-remove_file "views/layouts/application.html.erb"
-run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/views/layouts/application.html.erb' -O views/layouts/application.html.erb"
-
-
 git :add => "."
 git :commit => '-a -m "add gems and create main index"'
 
@@ -116,13 +114,17 @@ git :commit => '-a -m "add gems and create main index"'
 
 # run foundation generators
 generate 'foundation:install'
-
 # rails g foundation:install
+
+remove_file "views/layouts/application.html.erb"
+# foundation seems to generate a haml file:
+remove_file "views/layouts/application.html.haml"
+run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/views/layouts/application.html.erb' -O views/layouts/application.html.erb"
+
 
 run "mkdir -p app/assets/javascripts/ng/controllers \
            app/assets/javascripts/ng/directives \
-           app/assets/javascripts/ng/filters \
-           app/assets/javascripts/ng/models \
+           app/assets/javascripts/ng/common \
            app/assets/javascripts/ng/services \
            spec/karma/controllers \
            spec/karma/e2e"
@@ -130,6 +132,7 @@ run "mkdir -p app/assets/javascripts/ng/controllers \
 run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/spec/karma/karma_e2e.conf.js' -O spec/karma/karma_e2e.conf.js"
 run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/spec/karma/karma.conf.js' -O spec/karma/karma.conf.js"
 run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/assets/javascripts/ng/ng_app.js' -O app/assets/javascripts/ng/ng_app.js"
+run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/assets/javascripts/ng/common/data_services.js' -O app/assets/javascripts/ng/common/data_services.js"
 run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/assets/javascripts/application.js' -O app/assets/javascripts/application.js"
 
 

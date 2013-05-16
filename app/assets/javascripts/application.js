@@ -10,8 +10,9 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //   
-// try to avoid using jquery (http://blog.artlogic.com/2013/05/08/angularjs-best-practices-ive-been-doing-it-wrong-part-3-of-3/):
-// require jquery
+// would like to try to avoid using jquery (http://blog.artlogic.com/2013/05/08/angularjs-best-practices-ive-been-doing-it-wrong-part-3-of-3/):
+// but its needed for foundation (could use zepto instead though...)
+//= require jquery
 // require jquery_ujs
 //= require foundation
 // require jmasonry.2.1.05.js
