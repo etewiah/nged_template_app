@@ -65,14 +65,13 @@ run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_a
 run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/views/main/_top_bar.html.erb' -O app/views/main/_top_bar.html.erb"
 
 run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/config/mongoid.yml' -O config/mongoid.yml"
+run "wget --no-check-certificate 'https://raw.github.com/angular-ui/angular-ui/master/build/angular-ui.js' -O vendor/assets/javascripts/angular-ui.0.4.0.js"
 
 run "wget http://code.angularjs.org/1.0.6/angular.js -O vendor/assets/javascripts/angular.1.0.6.js"
 run "wget http://code.angularjs.org/1.0.6/angular-scenario.js -O vendor/assets/javascripts/angular-scenario.1.0.6.js"
 run "wget http://code.angularjs.org/1.0.6/angular-resource.js  -O vendor/assets/javascripts/angular-resource.1.0.6.js"
-run "wget http://code.angularjs.org/1.0.6/angular-scenario.js -O vendor/assets/javascripts/angular-scenario.1.0.6.js"
-run "wget http://code.angularjs.org/1.0.6/angular-scenario.js -O vendor/assets/javascripts/angular-scenario.1.0.6.js"
 
-
+https://raw.github.com/angular-ui/angular-ui/master/build/angular-ui.js
 
 # wget http://code.angularjs.org/1.0.6/angular-resource.js -P vendor/assets/javascripts
 # # gem 'angular-rails-engine'
@@ -91,8 +90,19 @@ gem 'thin'
 
 gem "unicorn"
 
+gem 'zurb-foundation', '~> 4.0.0', :group => [:assets]
+run 'bundle install'
+
+
 git :add => "."
 git :commit => '-a -m "add gems and create main index"'
+
+
+
+# run foundation generators
+generate 'foundation:install'
+
+# rails g foundation:install
 
 run "mkdir -p app/assets/javascripts/ng/controllers \
            app/assets/javascripts/ng/directives \

@@ -10,19 +10,18 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //   
-// try to avoid using jquery ():
+// try to avoid using jquery (http://blog.artlogic.com/2013/05/08/angularjs-best-practices-ive-been-doing-it-wrong-part-3-of-3/):
 // require jquery
 // require jquery_ujs
 //= require foundation
-//= require jmasonry.2.1.05.js
-//= require angular
-//= require angular-resource
-//= require angular-sanitize
+// require jmasonry.2.1.05.js
+//= require angular.1.0.6.js
+//= require angular-resource.1.0.6.js
+//= require angular-sanitize.1.0.6.js
 //using angular ui from vendors dir
 //= require angular-ui.0.4.0
 // require nged/angular-ui.0.4.0
-// require nged/angular-resource.1.0.5
-//= require jquery-token-input.1.6.0
+// require jquery-token-input.1.6.0
 // need to require ng_app before tree to ensure baseApp is defined first
 //= require ng/ng_app.js
 //= require_tree .
