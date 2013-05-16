@@ -1,6 +1,5 @@
-// Karma configuration
-// Generated on Thu Apr 25 2013 19:13:58 GMT+0200 (CEST)
-
+// usage:
+// karma start --browsers=Chrome spec/karma/karma_e2e.conf.js --single-run=true
 
 // base path, that will be used to resolve files and exclude
 basePath = '';
@@ -8,9 +7,9 @@ basePath = '';
 
 // list of files / patterns to load in the browser
 files = [
-  'vendor/assets/javascripts/angular-scenario.1.0.6.js',
+  '../../vendor/assets/javascripts/angular-scenario.1.0.6.js',
   ANGULAR_SCENARIO_ADAPTER,
-  'spec/javascripts/karma_e2e/*.js'
+  '../../spec/karma/e2e/*.js'
 ];
 
 

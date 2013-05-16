@@ -69,7 +69,7 @@ remove_file "app/views/ng_app/index.html.erb"
 run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/views/ng_app/index.html.erb' -O app/views/ng_app/index.html.erb"
 
 run "mkdir -p app/views/ng_templates"
-run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/views/ng_templates/index.html' -O app/views/ng_templates/index.html"
+run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/views/ng_templates/index.html.erb' -O app/views/ng_templates/index.html.erb"
 run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/controllers/ng_templates_controller.rb' -O app/controllers/ng_templates_controller.rb"
 
 remove_file "app/helpers/main_helper.rb"
@@ -84,6 +84,7 @@ run "wget http://code.angularjs.org/1.0.6/angular.js -O vendor/assets/javascript
 run "wget http://code.angularjs.org/1.0.6/angular-scenario.js -O vendor/assets/javascripts/angular-scenario.1.0.6.js"
 run "wget http://code.angularjs.org/1.0.6/angular-resource.js  -O vendor/assets/javascripts/angular-resource.1.0.6.js"
 run "wget http://code.angularjs.org/1.0.6/angular-sanitize.js  -O vendor/assets/javascripts/angular-sanitize.1.0.6.js"
+run "wget http://code.angularjs.org/1.0.6/angular-mocks.js  -O vendor/assets/javascripts/angular-mocks.1.0.6.js"
 
 
 # wget http://code.angularjs.org/1.0.6/angular-resource.js -P vendor/assets/javascripts
@@ -129,6 +130,9 @@ run "mkdir -p app/assets/javascripts/ng/controllers \
            spec/karma/controllers \
            spec/karma/e2e"
 
+run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/spec/karma/controllers/test-tests.js' -O spec/karma/controllers/test-tests.js"
+run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/spec/karma/e2e/test-tests.js' -O spec/karma/e2e/test-tests.js"
+
 run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/spec/karma/karma_e2e.conf.js' -O spec/karma/karma_e2e.conf.js"
 run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/spec/karma/karma.conf.js' -O spec/karma/karma.conf.js"
 run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/assets/javascripts/ng/ng_app.js' -O app/assets/javascripts/ng/ng_app.js"
@@ -146,6 +150,13 @@ route "  scope '(:locale)', :locale => /en|es/ do
     match 'app' => 'ng_app#index'
 
   end"
+
+# commit 
+git :add => "."
+git :commit => '-a -m "add angular basis"'
+
+# git remote add origin ssh://git@bitbucket.org/etewiah/socialrecall.git
+# git push -u --all
 
 #Setup the database
 # run "rm config/database.yml"

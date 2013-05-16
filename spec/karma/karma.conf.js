@@ -11,14 +11,14 @@ basePath = '';
 files = [
   JASMINE,
   JASMINE_ADAPTER,
-  'vendor/assets/javascripts/angular.1.0.6.js',
-  'vendor/assets/javascripts/angular-resource.1.0.6.js',
-  'vendor/assets/javascripts/angular-sanitize.1.0.6.js',
-  'vendor/assets/javascripts/angular-ui.0.4.0.js',
-  'vendor/assets/javascripts/angular-mocks.js',
-  'app/assets/javascripts/ng/ng_app.js.erb',
-  'app/assets/javascripts/ng/**/*.js',
-  'spec/javascripts/karma/**/*.js'
+  '../../vendor/assets/javascripts/angular.1.0.6.js',
+  '../../vendor/assets/javascripts/angular-resource.1.0.6.js',
+  '../../vendor/assets/javascripts/angular-sanitize.1.0.6.js',
+  '../../vendor/assets/javascripts/angular-ui.0.4.0.js',
+  '../../vendor/assets/javascripts/angular-mocks.1.0.6.js',
+  '../../app/assets/javascripts/ng/ng_app.js',
+  '../../app/assets/javascripts/ng/**/*.js',
+  '../../spec/karma/controllers/*.js'
 ];
 
 
