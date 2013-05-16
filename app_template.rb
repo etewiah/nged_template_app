@@ -56,12 +56,19 @@ git :commit => '-a -m "add rspec"'
 #   remove_file "public/index.html"
 # end
 
-generate :controller, "main index --skip-javascripts"
-route "root to: 'main\#index'"
+
+generate :controller, "main home --skip-javascripts"
+route "root to: 'main\#home'"
 remove_file "public/index.html"
 
-remove_file "app/views/main/index.html.erb"
-run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/views/main/index.html.erb' -O app/views/main/index.html.erb"
+remove_file "app/views/main/home.html.erb"
+run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/views/main/home.html.erb' -O app/views/main/home.html.erb"
+
+generate :controller, "ng_app index --skip-javascripts"
+remove_file "app/views/ng_app/index.html.erb"
+run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/views/ng_app/index.html.erb' -O app/views/ng_app/index.html.erb"
+
+
 
 remove_file "helpers/main_helper.rb"
 run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/helpers/main_helper.rb' -O helpers/main_helper.rb"
@@ -126,6 +133,16 @@ run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_a
 run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/assets/javascripts/application.js' -O app/assets/javascripts/application.js"
 
 
+route "  scope '(:locale)', :locale => /en|es/ do
+    %w[home about privacy].each do |page|
+      get page, controller: 'main', action: page
+    end
+
+    match 'ng_components/*path' => 'ng_components#show'
+    match 'ng_templates/*path' => 'ng_templates#show'
+    match 'app' => 'main#index'
+
+  end"
 
 #Setup the database
 # run "rm config/database.yml"
