@@ -12,79 +12,24 @@ var baseApp = angular.module('baseApp', ['DataServices', 'HelperServices', 'ngSa
         .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
             $routeProvider
                     .when('/',{
-                        templateUrl: '<%= asset_path("controllers/happenings/index.html") %>',
-                        controller: 'HappeningsIndexCtrl',
-                        activeMainTab: 'Home',
-                        showTwitterFeed: false,
-                        showDisqus: false
+                        templateUrl: '/ng_templates/index'
                     })
-                    .when('/map', {
-                        templateUrl: '<%= asset_path("map.html") %>',
-                        controller: 'MapCtrl',
-                        showTwitterFeed: false,
-                        showDisqus: false
-                    })
-                    .when('/happenings/:happening_id', {
-                        templateUrl: '<%= asset_path("controllers/happenings/show.html") %>',
-                        controller: 'HappeningsShowCtrl',
-                        showTwitterFeed: true,
-                        showDisqus: true
-                    })
-                // .when('/happenings/:happening_id/:edit_id', {
-                //   templateUrl: '<%= asset_path("controllers/happenings/edit_show.html") %>',
-                //   controller: 'EditHappeningCtrl'
-                // })
-                    .when('/all/happenings',{
-                        templateUrl: '<%= asset_path("controllers/happenings/index.html") %>',
-                        controller: 'HappeningsIndexCtrl',
-                        activeMainTab: 'Home',
-                        showTwitterFeed: false,
-                        showDisqus: false
-                    })
-                    .when('/all/happenings/:tag',{
-                        templateUrl: '<%= asset_path("controllers/happenings/index.html") %>',
-                        controller: 'HappeningsIndexCtrl'
-                    })
-                    .when('/all/places', {
-                        templateUrl: '<%= asset_path("controllers/places/index.html") %>',
-                        controller: 'PlacesIndexCtrl'
-                    })
-                    .when('/places/:place_id', {
-                        templateUrl: '<%= asset_path("controllers/places/show.html") %>',
-                        controller: 'PlacesShowCtrl',
-                        showTwitterFeed: true,
-                        showDisqus: true
-                    })
-                // .when('/all/picks', {
-                //   templateUrl: '<%= asset_path("controllers/spaces/index.html") %>',
-                //   controller: 'PicksIndexCtrl'
-                // })
-                // .when('/spaces/:picks_id', {
-                //   templateUrl: '<%= asset_path("controllers/spaces/show.html") %>',
-                //   controller: PicksShowCtrl,
-                //   showTwitterFeed: true,
-                //   showDisqus: true
-                // })
-                    .when('/all/spaces', {
-                        templateUrl: '/ng_templates/spaces/index',
-                        controller: 'SpacesIndexCtrl'
-                    })
-                    .when('/new/space', {
-                        templateUrl: '/ng_templates/spaces/new',
-                        controller: 'SpacesIndexCtrl'
-                    })
-                    .when('/spaces/:space_id', {
-                        templateUrl: '/ng_templates/spaces/show.html',
-                        controller: SpacesShowCtrl,
-                        showTwitterFeed: false,
-                        showDisqus: true
-                    })
-                    .when('/new/quick_plan', {
-                        templateUrl: '/ng_templates/quick_plans/landing'
-                    })
-                    .when('/quick_plans/:quick_plan_id', {
-                        templateUrl: '/ng_templates/quick_plans/show'
-                    })      
+                    // .when('/new/space', {
+                    //     templateUrl: '/ng_templates/spaces/new',
+                    //     controller: 'SpacesIndexCtrl'
+                    // })
+                    // .when('/spaces/:space_id', {
+                    //     templateUrl: '/ng_templates/spaces/show.html',
+                    //     controller: SpacesShowCtrl,
+                    //     showTwitterFeed: false,
+                    //     showDisqus: true
+                    // })
+                    // .when('/new/quick_plan', {
+                    //     templateUrl: '/ng_templates/quick_plans/landing'
+                    // })
+                    // .when('/quick_plans/:quick_plan_id', {
+                    //     templateUrl: '/ng_templates/quick_plans/show'
+                    // })      
                     .otherwise({
                         redirectTo: '/'
                     });
@@ -150,9 +95,9 @@ baseApp.run(['$rootScope','$http', function($rootScope, $http){
     // });
 
 
-    $rootScope.$on('handleNavEmit', function(event, args) {
-        $rootScope.$broadcast('handleNavBroadcast', args);
-    });
+    // $rootScope.$on('handleNavEmit', function(event, args) {
+    //     $rootScope.$broadcast('handleNavBroadcast', args);
+    // });
 
 
 }]);

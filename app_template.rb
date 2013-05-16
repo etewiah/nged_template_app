@@ -68,10 +68,10 @@ generate :controller, "ng_app index --skip-javascripts"
 remove_file "app/views/ng_app/index.html.erb"
 run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/views/ng_app/index.html.erb' -O app/views/ng_app/index.html.erb"
 
+run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/controllers/ng_templates_controller.rb' -O app/controllers/ng_templates_controller.rb"
 
-
-remove_file "helpers/main_helper.rb"
-run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/helpers/main_helper.rb' -O helpers/main_helper.rb"
+remove_file "app/helpers/main_helper.rb"
+run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/helpers/main_helper.rb' -O app/helpers/main_helper.rb"
 
 run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/views/main/_top_bar.html.erb' -O app/views/main/_top_bar.html.erb"
 
@@ -140,7 +140,7 @@ route "  scope '(:locale)', :locale => /en|es/ do
 
     match 'ng_components/*path' => 'ng_components#show'
     match 'ng_templates/*path' => 'ng_templates#show'
-    match 'app' => 'main#index'
+    match 'app' => 'ng_app#index'
 
   end"
 
