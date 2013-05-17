@@ -1,225 +1,28 @@
+<div id="poll-test">
+<div ng-switch on="poll.step" ng-init="poll.step='title'" >
+	<div ng-switch-when="title">
 
-<% content_for :head do %>
-<meta charset='utf-8'>
-<meta name="fragment" content="!">
-
-<meta content='<%= ENV['APPLICATION_NAME' ] %>
-' itemprop='name'>
-<meta content='<%= ENV['APPLICATION_NAME' ] %>
-is the best place find, create and share events.' itemprop='description'>
-<meta content='<%= ENV['APPLICATION_NAME' ] %>
-,crowdsource,events,spain,madrid,barcelona,valencia,pintrest' name='keywords'>
-<link href='http://fonts.googleapis.com/css?family=Jolly+Lodger' rel='stylesheet' type='text/css'>
-<% end %>
-
-<div id="seo-status" data-status="{{ status }}" ></div>
-<!-- Above to be used to indicate when page is ready to render for robots. -->
-
-<div class="container"  ng-app="baseApp" ng-controller="BaseCtrl" >
-
-	<%= render "main/top_bar" %>
-
-	<!-- start middle white col -->
-	<div class="row small-12 columns" 
-    style="padding-top:20px;background:white;min-height: 1000px">
-
-		<!-- Nav and Banner -->
-
-		<div class="row">
-			<div class="large-12 columns">
-
-				<!-- Main Banner Image - place in a paragraph to enforce the modular scale spacing -->
-				<!-- 				<p>
-				<img src="http://placehold.it/1000x400&text=[banner img]" />
-			</p>
-			-->
+		<div class="">
+			<label class="control-label" for="title">What are you trying to remember?</label>
+			<input type="text"  autofocus="true"  ng-model="rehapp.title"  tabindex="1"
+          placeholder="eg: End of uni goodbye party"/>
 		</div>
+
+		<div class="small round button right"    ui-keypress="{13:'poll.step=\'description\''}"
+           tabindex="4" ng-click="poll.step='description'" id="rehapp-title-button" >Next</div>
 	</div>
 
-	<!-- End Nav and Banner -->
-
-	<!-- Main Content Section -->
-
-	<div class="row" style="padding-left: 15px;">
-		<div class="large-12 columns">
-			<h3>Its all about the spaces</h3>
-			<p>
-				Spaces are quick and easy to create.  You can create as many as you wish and share them with everyone or just a few friends.
-			</p>
-
-			<dl>
-				<dt></dt>
-				<dd></dd>
-			</dl>
-
+	<div ng-switch-when="description">
+		<div class="">
+			<label class="control-label" for="description">What do you remember about it?</label>
+			<textarea type="text"   ng-model="rehapp.description"  tabindex="1"
+          placeholder="eg: Bad 80's music"/>
 		</div>
-		<div class="large-3 columns">
-			<a href="app#!/all/spaces" class="radius button right">See how spaces are being used</a>
-		</div>
-		<div class="large-9 columns">
-			<p>
-				With spaces you can:
-			</p>
-			<ul class="disc" style="padding-left: 15px;">
-				<li>
-					<div>Showcase what's great in your favourite city</div>
-				</li>
-				<li>
-					<div>
-						Let other people know what your are interested in - a sort of wishlist of events
-					</div>
-				</li>
-				<li>
-					<div>
-						Create a poll to quickly figure out who can make which events at what time
-					</div>
-				</li>
-			</ul>
-		</div>
-	</div>
 
-	<!-- Call to Action Panel -->
-
-	<div class="row">
-		<div class="large-12 columns">
-
-			<div class="panel">
-				<h4></h4>
-
-				<div class="row">
-					<div class="large-9 columns">
-						Check out what's happening in the coming days and weeks. (Currently Madrid and Barcelona only - more cities coming soon)
-					</div>
-					<div class="large-3 columns">
-						<a href="app#!/all/happenings" class="radius button right">Browse Events</a>
-					</div>
-				</div>
-			</div>
-
-		</div>
-	</div>
-
-	<div class="row" style="padding-left: 15px;">
-		<div class="large-12 columns">
-			<h3>Coming soooonnn.....</h3>
-			<p>
-				<h6>Import facebook events</h6>
-				<ul class="disc" style="padding-left: 15px;">
-					<li>
-						<div>You can now get more publicity for your facebook events</div>
-					</li>
-					<li>
-						<div>
-							Alternatively, you can create a private space for existing public facebook events
-						</div>
-					</li>
-					<li>
-						<div>
-							You can plan events with people you are not friends with (or don't want to be friends with) on facebook
-						</div>
-					</li>
-				</ul>
-			</p>
-			<p>
-				<h6>Crowdsource events</h6>
-				<ul class="disc" style="padding-left: 15px;">
-					<li>
-						<div>Get recommendations for when you are in a new city.</div>
-					</li>
-					<li>
-						<div>
-							You think Susan Boyle is the worlds greatest singer? - bring her to your city!
-						</div>
-					</li>
-					<li>
-						<div>Make that sunday football in the park event happen!</div>
-					</li>
-				</ul>
-			</p>
-			<p>
-				<h6>More details polls</h6>
-				<ul class="disc" style="padding-left: 15px;">
-					<li>
-						<div>Ask for opinions on events and places.</div>
-					</li>
-				</ul>
-			</p>
-			<hr></div>
-	</div>
-
-	<!-- Call to Action Panel -->
-	<div class="row">
-		<div class="large-12 columns">
-
-			<div class="panel">
-
-				<div class="row">
-					<div class="large-9 columns">
-						<p>
-							<span style=" font-size: 1.4375em;">Get in touch!</span>
-							We'd love to hear from you.
-						</p>
-					</div>
-					<div class="large-3 columns">
-						<a href="mailto:etewiah@hotmail.com?subject=happensesame" class="radius button right">Contact Us</a>
-					</div>
-				</div>
-
-				<blockquote>
-					Happensesame is the future!!!
-					<cite>Tim Morton</cite>
-				</blockquote>
-
-			</div>
-
-		</div>
-	</div>
-
-</div>
-<!-- end of middle white col -->
-
-<!-- Footer 
-  
-  <footer class="row">
-<div class="large-12 columns">
-	<hr />
-	<div class="row">
-		<div class="large-6 columns">
-			<p>&copy; Copyright no one at all. Go to town.</p>
-		</div>
-		<div class="large-6 columns">
-			<ul class="inline-list right">
-				<li>
-					<a href="#">Link 1</a>
-				</li>
-				<li>
-					<a href="#">Link 2</a>
-				</li>
-				<li>
-					<a href="#">Link 3</a>
-				</li>
-				<li>
-					<a href="#">Link 4</a>
-				</li>
-				<li>
-					<a href="#">Link 5</a>
-				</li>
-				<li>
-					<a href="#">Link 6</a>
-				</li>
-				<li>
-					<a href="#">Link 7</a>
-				</li>
-			</ul>
-		</div>
+		<div class="small round button"   ui-keypress="{13:'poll.step=\'description\''}"
+           tabindex="4" ng-click="poll.step='title'" >Back</div>
+		<div class="small round button right"   ui-keypress="{13:'poll.step=\'description\''}"
+           tabindex="4" ng-click="poll.step='home'" >Next</div>
 	</div>
 </div>
-</footer>
--->
 </div>
-<style type="text/css"></style>
-<% content_for :javascripts do %>
-<%= google_analytics_js  %>
-<%= include_gon %>
-
-<% end %>

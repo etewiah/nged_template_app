@@ -159,6 +159,7 @@ git :commit => '-a -m "add angular basis"'
 gem "activeadmin-mongoid",  git: "git://github.com/elia/activeadmin-mongoid.git"
 gem 'devise'
 
+run 'bundle install'
 
 generate 'devise:install'
 generate 'active_admin:install'
