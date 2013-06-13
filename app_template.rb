@@ -49,24 +49,6 @@ git :add => "."
 git :commit => '-a -m "add rspec"'
 
 
-# if yes? "Do you want to generate a root controller?(yes/no)"
-#   name = ask("What should it be called?").underscore
-#   generate :controller, "#{name} index"
-#   route "root to: '#{name}\#index'"
-#   remove_file "public/index.html"
-# end
-
-
-generate :controller, "main home --skip-javascripts"
-route "root to: 'main\#home'"
-remove_file "public/index.html"
-
-remove_file "app/views/main/home.html.erb"
-run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/views/main/home.html.erb' -O app/views/main/home.html.erb"
-
-generate :controller, "ng_app index --skip-javascripts"
-remove_file "app/views/ng_app/index.html.erb"
-run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/views/ng_app/index.html.erb' -O app/views/ng_app/index.html.erb"
 
 run "mkdir -p app/views/ng_templates"
 run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/views/ng_templates/index.html.erb' -O app/views/ng_templates/index.html.erb"
@@ -77,7 +59,10 @@ run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_a
 
 run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/views/main/_top_bar.html.erb' -O app/views/main/_top_bar.html.erb"
 
-run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/config/mongoid.yml' -O config/mongoid.yml"
+# run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/config/mongoid.yml' -O config/mongoid.yml"
+# replaced mongoid with postgresql
+run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/config/database.yml' -O config/database.yml"
+
 run "wget --no-check-certificate 'https://raw.github.com/angular-ui/angular-ui/master/build/angular-ui.js' -O vendor/assets/javascripts/angular-ui.0.4.0.js"
 
 run "wget http://code.angularjs.org/1.0.6/angular.js -O vendor/assets/javascripts/angular.1.0.6.js"
@@ -96,7 +81,9 @@ gem "figaro"
 # gem "quiet_assets"
 gem "capistrano"
 gem "yaml_db"
-gem "mongoid"
+# gem "mongoid"
+# replacing mongoid with postgress
+# gem "pg"
 gem "active_model_serializers"
 
   # get rid of logging: WARN  Could not determine content-length of response body.
@@ -131,7 +118,7 @@ run "mkdir -p app/assets/javascripts/ng/controllers \
            spec/karma/e2e"
 
 run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/spec/karma/controllers/test-tests.js' -O spec/karma/controllers/test-tests.js"
-run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/spec/karma/e2e/test-tests.js' -O spec/karma/e2e/test-tests.js"
+run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/spec/karma/e2e/landing.js' -O spec/karma/e2e/landing.js"
 
 run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/spec/karma/karma_e2e.conf.js' -O spec/karma/karma_e2e.conf.js"
 run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/spec/karma/karma.conf.js' -O spec/karma/karma.conf.js"
@@ -156,13 +143,35 @@ git :add => "."
 git :commit => '-a -m "add angular basis"'
 
 
-gem "activeadmin-mongoid",  git: "git://github.com/elia/activeadmin-mongoid.git"
-gem 'devise'
+# if yes? "Do you want to generate a root controller?(yes/no)"
+#   name = ask("What should it be called?").underscore
+#   generate :controller, "#{name} index"
+#   route "root to: '#{name}\#index'"
+#   remove_file "public/index.html"
+# end
 
-run 'bundle install'
 
-generate 'devise:install'
-generate 'active_admin:install'
+generate :controller, "main home --skip-javascripts"
+route "root to: 'main\#home'"
+remove_file "public/index.html"
+
+remove_file "app/views/main/home.html.erb"
+run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/views/main/home.html.erb' -O app/views/main/home.html.erb"
+
+generate :controller, "ng_app index --skip-javascripts"
+remove_file "app/views/ng_app/index.html.erb"
+run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/views/ng_app/index.html.erb' -O app/views/ng_app/index.html.erb"
+
+
+
+
+# gem "activeadmin-mongoid",  git: "git://github.com/elia/activeadmin-mongoid.git"
+# gem 'devise'
+
+# run 'bundle install'
+
+# generate 'devise:install'
+# generate 'active_admin:install'
 
 
 
