@@ -28,6 +28,11 @@ run 'bundle install'
 # END
 
 
+# run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/config/mongoid.yml' -O config/mongoid.yml"
+# replaced mongoid with postgresql - need to have a half-decent db file for rspec to run okay:
+run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/config/database.yml' -O config/database.yml"
+
+
 # run rspec generators
 generate 'rspec:install'
 
@@ -53,15 +58,6 @@ git :commit => '-a -m "add rspec"'
 run "mkdir -p app/views/ng_templates"
 run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/views/ng_templates/index.html.erb' -O app/views/ng_templates/index.html.erb"
 run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/controllers/ng_templates_controller.rb' -O app/controllers/ng_templates_controller.rb"
-
-remove_file "app/helpers/main_helper.rb"
-run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/helpers/main_helper.rb' -O app/helpers/main_helper.rb"
-
-run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/views/main/_top_bar.html.erb' -O app/views/main/_top_bar.html.erb"
-
-# run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/config/mongoid.yml' -O config/mongoid.yml"
-# replaced mongoid with postgresql
-run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/config/database.yml' -O config/database.yml"
 
 run "wget --no-check-certificate 'https://raw.github.com/angular-ui/angular-ui/master/build/angular-ui.js' -O vendor/assets/javascripts/angular-ui.0.4.0.js"
 
@@ -154,6 +150,12 @@ git :commit => '-a -m "add angular basis"'
 generate :controller, "main home --skip-javascripts"
 route "root to: 'main\#home'"
 remove_file "public/index.html"
+
+remove_file "app/helpers/main_helper.rb"
+run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/helpers/main_helper.rb' -O app/helpers/main_helper.rb"
+
+run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/views/main/_top_bar.html.erb' -O app/views/main/_top_bar.html.erb"
+
 
 remove_file "app/views/main/home.html.erb"
 run "wget --no-check-certificate 'https://raw.github.com/etewiah/nged_template_app/master/app/views/main/home.html.erb' -O app/views/main/home.html.erb"
